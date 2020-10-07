@@ -1,0 +1,106 @@
+.jqs-grid-head {
+	 background: #4a4a4a;
+}
+ .jqs-grid-day {
+	 color: #fff;
+}
+ .jqs-table {
+	 z-index: 1;
+}
+ #schedule {
+	 overflow: hidden;
+}
+ .schedule-text {
+	 text-align: left;
+}
+ .scheduler {
+	 margin: 30px 0 0 0;
+}
+ #scheduler-table {
+	 max-height: 430px;
+	 overflow-y: auto;
+}
+ .scheduler-bottom-actionbar {
+	 display: inline-flex;
+	 position: relative;
+}
+ .scheduler-bottom-actionbar div {
+	 margin: 15px 0px;
+}
+ .scheduler {
+	 padding: 10px;
+}
+ .scheduler .message {
+	 color: red;
+	 padding: 2px 0;
+	 font-size: 12px;
+}
+ .scheduler .table-drag-select td, .scheduler .row-header td {
+	 text-align: center;
+	 border: 1px solid #eaeaea !important;
+	 font-size: 0.875rem;
+	 line-height: 1.2rem;
+	 height: 35px;
+}
+ .scheduler .table-drag-select td.cell-enabled {
+	 background-color: #fff !important;
+	 cursor: copy !important;
+}
+ .scheduler .table-drag-select td.cell-disabled {
+	/* Put yer css here */
+	 cursor: not-allowed;
+}
+ .scheduler .table-drag-select td.cell-selected {
+	 background-color: #bbe8e2 !important;
+	 cursor: not-allowed !important;
+}
+ .scheduler .table-drag-select td.cell-being-selected {
+	 background-color: #bbe8e2 !important;
+	 cursor: cell !important;
+}
+ .scheduler .table-header {
+	 width: 100%;
+	 table-layout: fixed;
+	 user-select: none;
+	 margin-left: auto;
+	 margin-right: auto;
+	 border-collapse: collapse;
+}
+ .scheduler .row-header td {
+	/* Remove empty space at top of table */
+	 border-top: 0;
+	 line-height: 2.5rem;
+	 background-color: #f5f6fa !important;
+	 font-weight: bold;
+	 text-transform: capitalize !important;
+	 text-overflow: clip;
+	 overflow: hidden;
+	 text-align: center;
+}
+ .scheduler .row-header td:first-child {
+	/* Consume less whitespace */
+	 width: 92px;
+}
+ .scheduler .row-header .time-zone {
+	 position: relative;
+	 display: flex;
+	 flex-direction: column;
+	 flex-wrap: wrap;
+	 line-height: 16px;
+	 bottom: 15%;
+}
+ .scheduler .row-header .time-zone span {
+	 font-size: 11px;
+	 font-weight: normal;
+	 word-break: break-word;
+	 color: red;
+}
+ .scheduler .table-drag-select td:first-child {
+	/* Consume less whitespace */
+	 width: 92px;
+}
+ .scheduler .img {
+	 width: 10px;
+	 height: 10px;
+	 alt: '';
+}
