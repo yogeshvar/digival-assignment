@@ -222,9 +222,9 @@ class Scheduler extends React.Component {
                             {this.renderRows()}
                         </TableDragSelect>
                     </div>
-                    <div>
+                    <div className="scheduler">
                         <Button variant="contained" style={{ margin: '8px' }} onClick={() => { this.reset() }}>D E L E T E </Button>
-                        <Button variant="contained" style={{ margin: '8px' }}>S A V E</Button>
+                        <Button variant="contained" style={{ margin: '8px' }} onClick={() => { alert('Call API for saving the data') }}>S A V E</Button>
                         <Button variant="contained" style={{ margin: '8px' }} onClick={() => { this.handlePreview() }}>{showState ? 'Hide Preview' : 'P R E V I E W'}</Button>
                     </div>
                 </div>
