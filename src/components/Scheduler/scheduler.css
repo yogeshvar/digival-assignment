@@ -51,11 +51,11 @@
 	 cursor: not-allowed;
 }
  .scheduler .table-drag-select td.cell-selected {
-	 background-color: #bbe8e2 !important;
+	 background-color: #2f8dff !important;
 	 cursor: not-allowed !important;
 }
  .scheduler .table-drag-select td.cell-being-selected {
-	 background-color: #bbe8e2 !important;
+	 background-color: #2f8dff !important;
 	 cursor: cell !important;
 }
  .scheduler .table-header {

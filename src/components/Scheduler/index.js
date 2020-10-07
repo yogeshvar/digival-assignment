@@ -5,6 +5,7 @@ import { Button, withStyles } from '@material-ui/core';
 import scheduleAM from './schedule_AMICON.svg';
 import schedulePM from './schedule_PMICON.svg';
 import PreviewTable from '../PreviewTable';
+import './scheduler.css';
 
 const dayMap = [
     'MONDAY',
