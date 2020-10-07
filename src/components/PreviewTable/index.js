@@ -68,95 +68,84 @@ const dayMap = [
     'SUNDAY',
 ];
 
-class PreviewTable extends React.Component {
-    edit = () => {
-        this.props.handleBack();
-    };
-
-    handleClose = () => {
-        this.props.handleClose();
-    }
-
-    render() {
-        const { classes, preference } = this.props;
-        const preferred = new Map();
-        Object.keys(preference).forEach(day => {
-            preferred.set(day, preference[day].preferred);
-        });
-        return (
-            <div className={classes.root}>
-                <Table className={classes.table}>
-                    <TableHead>
-                        <TableRow>
-                            <CustomTableCell className={classes.cellWidth}>
-                                Day
+const PreviewTable = ({ classes, preference }) => {
+    const preferred = new Map();
+    Object.keys(preference).forEach(day => {
+        preferred.set(day, preference[day].preferred);
+    });
+    return (
+        <div className={classes.root}>
+            <Table className={classes.table}>
+                <TableHead>
+                    <TableRow>
+                        <CustomTableCell className={classes.cellWidth}>
+                            Day
                             </CustomTableCell>
-                            <CustomTableCell className={classes.cellWidth}>
-                                Duration
+                        <CustomTableCell className={classes.cellWidth}>
+                            Duration
                             </CustomTableCell>
-                            <CustomTableCell className={classes.timing}>
-                                TimeSlot
+                        <CustomTableCell className={classes.timing}>
+                            TimeSlot
                             </CustomTableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {dayMap.map(row => {
-                            const hoursOnDay = preferred
-                                .get(row)
-                                .reduce((count, arr) => count + arr[1], 0);
-                            return (
-                                <TableRow key={row} className={classes.row}>
-                                    <CustomTableCell
-                                        component="th"
-                                        scope="row"
-                                        className={classes.cellWidth}
-                                    >
-                                        {row === 'MONDAY' && (
-                                            'Monday'
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {dayMap.map(row => {
+                        const hoursOnDay = preferred
+                            .get(row)
+                            .reduce((count, arr) => count + arr[1], 0);
+                        return (
+                            <TableRow key={row} className={classes.row}>
+                                <CustomTableCell
+                                    component="th"
+                                    scope="row"
+                                    className={classes.cellWidth}
+                                >
+                                    {row === 'MONDAY' && (
+                                        'Monday'
+                                    )}
+                                    {row === 'TUESDAY' && (
+                                        'Tuesday'
+                                    )}
+                                    {row === 'WEDNESDAY' && (
+                                        'Wednesday'
+                                    )}
+                                    {row === 'THURSDAY' && (
+                                        'Thursday'
+                                    )}
+                                    {row === 'FRIDAY' && (
+                                        'Friday'
+                                    )}
+                                    {row === 'SATURDAY' && (
+                                        'Saturday'
+                                    )}
+                                    {row === 'SUNDAY' && (
+                                        'Sunday'
+                                    )}
+                                </CustomTableCell>
+                                <CustomTableCell className={classes.cellWidth}>
+                                    {hoursOnDay === 0
+                                        ? '---'
+                                        : hoursOnDay === 1
+                                            ? `${hoursOnDay * 2} Hour`
+                                            : `${hoursOnDay * 2} Hours`}
+                                </CustomTableCell>
+                                <CustomTableCell className={classes.timing}>
+                                    {preferred.get(row) <= 0 ? (
+                                        'No Slots Selected'
+                                    ) : (
+                                            preferred.get(row).map(time => {
+                                                const timeStr = time.slice(0, 1)[0];
+                                                return <ChipView key={btoa(timeStr)} label={timeStr} />;
+                                            })
                                         )}
-                                        {row === 'TUESDAY' && (
-                                            'Tuesday'
-                                        )}
-                                        {row === 'WEDNESDAY' && (
-                                            'Wednesday'
-                                        )}
-                                        {row === 'THURSDAY' && (
-                                            'Thursday'
-                                        )}
-                                        {row === 'FRIDAY' && (
-                                            'Friday'
-                                        )}
-                                        {row === 'SATURDAY' && (
-                                            'Saturday'
-                                        )}
-                                        {row === 'SUNDAY' && (
-                                            'Sunday'
-                                        )}
-                                    </CustomTableCell>
-                                    <CustomTableCell className={classes.cellWidth}>
-                                        {hoursOnDay === 0
-                                            ? '---'
-                                            : hoursOnDay === 1
-                                                ? `${hoursOnDay * 2} Hour`
-                                                : `${hoursOnDay * 2} Hours`}
-                                    </CustomTableCell>
-                                    <CustomTableCell className={classes.timing}>
-                                        {preferred.get(row) <= 0 ? (
-                                            'No Slots Selected'
-                                        ) : (
-                                                preferred.get(row).map(time => {
-                                                    const timeStr = time.slice(0, 1)[0];
-                                                    return <ChipView key={btoa(timeStr)} label={timeStr} />;
-                                                })
-                                            )}
-                                    </CustomTableCell>
-                                </TableRow>
-                            );
-                        })}
-                    </TableBody>
-                </Table>
-            </div >
-        );
-    }
+                                </CustomTableCell>
+                            </TableRow>
+                        );
+                    })}
+                </TableBody>
+            </Table>
+        </div >
+    );
 }
 export default withStyles(styles)(PreviewTable);

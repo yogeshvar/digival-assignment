@@ -7,10 +7,10 @@ const styles = theme => ({
         display: 'flex',
         justifyContent: 'center',
         flexWrap: 'wrap',
-        padding: theme.spacing(2),
+        padding: theme.spacing(1),
     },
     chip: {
-        margin: theme.spacing(2),
+        margin: theme.spacing(1),
         fontSize: 12,
         backgroundColor: '#bbe8e2',
     },
