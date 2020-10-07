@@ -141,7 +141,6 @@ class Scheduler extends React.Component {
                 return (
                     <React.Fragment>
                         <img
-                            className="img"
                             src={scheduleAM}
                             className={classes.scheduleImage}
                             alt="am"
@@ -153,7 +152,6 @@ class Scheduler extends React.Component {
                 return (
                     <React.Fragment>
                         <img
-                            className="img"
                             src={schedulePM}
                             className={classes.scheduleImage}
                             alt="pm"
