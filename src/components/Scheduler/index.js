@@ -5,8 +5,9 @@ import { Button } from '@material-ui/core';
 import scheduleAM from './schedule_AMICON.svg';
 import schedulePM from './schedule_PMICON.svg';
 import PreviewTable from '../PreviewTable';
-import { toViewModel, getHour } from './utils';
+import { toViewModel, getHour, toTimeSlots } from './utils';
 import './scheduler.css';
+import DialogBox from '../DialogBox';
 
 const dayMap = [
     'MONDAY',
@@ -31,8 +32,7 @@ const DummyHeader = () => {
     );
 }
 
-const RenderTime = (time, props) => {
-    console.log(props);
+const RenderTime = (time) => {
     switch (time) {
         case '12 AM':
             return (
@@ -105,12 +105,11 @@ const RenderRows = () => {
 }
 
 const Scheduler = () => {
-
-
     const [cells, setCells] = useState(new Array(1 + 24)
         .fill(1)
         .map(() => new Array(dayMap.length + 1).fill(false)))
     const [preview, showPreview] = useState(false);
+    const [confirmation, showConfirmation] = useState(false);
 
     function reset() {
         setCells(new Array(1 + 24)
@@ -125,14 +124,26 @@ const Scheduler = () => {
     function handleCells(cells) {
         setCells(cells);
     }
+
     const preference = toViewModel(cells)
     const preferred = new Map();
     Object.keys(preference).forEach(day => {
         preferred.set(day, preference[day].preferred);
     });
 
+    function handleSave() {
+        showConfirmation(!confirmation);
+    }
+
+    function handleSlots() {
+        var timeSlots = toTimeSlots(cells);
+        console.log({ timeSlots });
+        showConfirmation(!confirmation);
+    }
+
     return (
         <React.Fragment>
+            {confirmation && <DialogBox handleClose={handleSave} handleSlots={handleSlots} />}
             <div className="scheduler">
                 <table className="table-header">
                     <tbody>
@@ -150,7 +161,7 @@ const Scheduler = () => {
                 </div>
                 <div className="scheduler">
                     <Button variant="contained" style={{ margin: '8px' }} onClick={reset}>D E L E T E </Button>
-                    <Button variant="contained" style={{ margin: '8px' }} onClick={() => { alert('Call API for saving the data') }}>S A V E</Button>
+                    <Button variant="contained" style={{ margin: '8px' }} onClick={handleSave}>S A V E</Button>
                     <Button variant="contained" style={{ margin: '8px' }} onClick={handlePreview}>{preview ? 'Hide Preview' : 'P R E V I E W'}</Button>
                 </div>
                 {preview && <PreviewTable preference={toViewModel(cells)} />}
