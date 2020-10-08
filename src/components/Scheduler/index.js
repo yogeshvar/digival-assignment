@@ -155,7 +155,7 @@ const Scheduler = () => {
                         value={cells}
                         onChange={handleCells}
                     >
-                        {DummyHeader()}
+                        <DummyHeader />
                         {RenderRows()}
                     </TableDragSelect>
                 </div>
