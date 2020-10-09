@@ -24,7 +24,6 @@ const CustomTableCell = withStyles(theme => ({
 const styles = theme => ({
     root: {
         margin: 'auto',
-        width: '50%',
         border: '1px solid',
         paddingBottom: '20px'
     },

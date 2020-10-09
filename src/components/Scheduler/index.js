@@ -160,9 +160,9 @@ const Scheduler = () => {
                     </TableDragSelect>
                 </div>
                 <div className="scheduler">
-                    <Button variant="contained" style={{ margin: '8px' }} onClick={reset}>D E L E T E </Button>
-                    <Button variant="contained" style={{ margin: '8px' }} onClick={handleSave}>S A V E</Button>
-                    <Button variant="contained" style={{ margin: '8px' }} onClick={handlePreview}>{preview ? 'Hide Preview' : 'P R E V I E W'}</Button>
+                    <Button variant="outlined" color="primary" style={{ margin: '8px' }} onClick={reset}>D E L E T E </Button>
+                    <Button variant="outlined" color="primary" style={{ margin: '8px' }} onClick={handleSave}>S A V E</Button>
+                    <Button variant="outlined" color="primary" style={{ margin: '8px' }} onClick={handlePreview}>{preview ? 'Hide Preview' : 'P R E V I E W'}</Button>
                 </div>
                 {preview && <PreviewTable preference={toViewModel(cells)} />}
             </div >
