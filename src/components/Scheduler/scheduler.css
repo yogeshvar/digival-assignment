@@ -77,10 +77,6 @@
 	 overflow: hidden;
 	 text-align: center;
 }
- .scheduler .row-header td:first-child {
-	/* Consume less whitespace */
-	 width: 92px;
-}
  .scheduler .row-header .time-zone {
 	 position: relative;
 	 display: flex;
