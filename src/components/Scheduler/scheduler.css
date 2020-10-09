@@ -99,11 +99,6 @@
 .scheduler .table-drag-select td.cell-disabled img {
     width: 20px;
 }
-
- .scheduler .table-drag-select td:first-child {
-	/* Consume less whitespace */
-	 width: 92px;
-}
  .scheduler .img {
 	 width: 10px;
 	 height: 10px;
